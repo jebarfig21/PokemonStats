@@ -4,6 +4,6 @@ const router = express.Router();
 const apiController = require('../controllers/apiController');
 
 // Define una ruta GET para obtener datos de la API
-router.get('/datos', apiController.getDatos);
-console.log("Llegamos a routes")
+router.get('/allPokemon', apiController.getPokemones);
+
 module.exports = router;

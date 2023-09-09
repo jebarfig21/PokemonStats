@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <!-- Agrega la referencia a Bootstrap CSS -->
+	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	    <link rel="stylesheet" type="text/css" href="style.css">
+		<title>CRUD Page - Proyecto 2</title>
+		
+		   
+	</head>
+	<body>
+	
+   <!--Sección de Navbar-->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<div class="container-fluid">
+	  		<a class="navbar-brand" href="#">UTEL</a>
+	  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	    		<span class="navbar-toggler-icon"></span>
+	  		</button>
+	  		
+	  		<div class="collapse navbar-collapse" id="navbarNav">
+	    		<ul class="navbar-nav">
+	      			<li class="nav-item active">
+	        			<a class="nav-link" href="#">Pokemon Battle <span class="sr-only">(current)</span></a>
+	      			</li>
+	    		</ul>
+	  		</div>
+		</div><!-- Container fluid -->
+	</nav>
+
+	<!--Titulo y descripción del proyecto -->
+	<div class="container-fluid">
+		<!--Descripción de página-->
+		<br>
+		<div class="jumbotron p-4">
+	        <h1 class="display-4">Pokemon Battle</h1>
+	        <p class="lead">Comparador de batllas pokemon para poder predecir por probabilidad que pokemons sería ganador</p>
+	        <hr class="my-4">
+	    </div>
+	    <br>	
+	</div><!--Container fluid -->
+	<!--Cuerpo-->
+	<div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <!-- Fila 1, Columna 1 - Dropdown -->
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown 1
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Opción 1</a></li>
+                        <li><a class="dropdown-item" href="#">Opción 2</a></li>
+                        <li><a class="dropdown-item" href="#">Opción 3</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col text-center">
+                <!-- Fila 1, Columna 2 (Espacio en blanco) -->
+            </div>
+            <div class="col text-center" >
+                <!-- Fila 1, Columna 3 - Dropdown -->
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown 2
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item" href="#">Opción 1</a></li>
+                        <li><a class="dropdown-item" href="#">Opción 2</a></li>
+                        <li><a class="dropdown-item" href="#">Opción 3</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <!-- Fila 2, Columna 1 - Imagen -->
+                <img src="imagen1.jpg" alt="Imagen 1" class="img-fluid">
+            </div>
+            <div class="col text-center">
+                <!-- Fila 2, Columna 2 - Imagen -->
+                <img src="imagen2.jpg" alt="Imagen 2" class="img-fluid">
+            </div>
+            <div class="col text-center">
+                <!-- Fila 2, Columna 3 - Imagen -->
+                <img src="imagen3.jpg" alt="Imagen 3" class="img-fluid">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <!-- Fila 3, Columna 1 - Lista de viñetas -->
+                <ul>
+                    <li>Elemento 1</li>
+                    <li>Elemento 2</li>
+                    <li>Elemento 3</li>
+                </ul>
+            </div>
+            <div class="col text-center">
+                <!-- Fila 3, Columna 2 - Botón -->
+                <button class="btn btn-primary">Botón</button>
+            </div>
+            <div class="col text-center">
+                <!-- Fila 3, Columna 3 - Lista de viñetas -->
+                <ul>
+                    <li>Elemento A</li>
+                    <li>Elemento B</li>
+                    <li>Elemento C</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+	<!-- Sección de Footer -->
+	<footer class="bg-dark text-light">
+	    <div class="container py-4">
+	        <div class="row">
+	            <div class="col-md-6">
+	                <h3>Información de Contacto</h3>
+	                <p>Dirección: Tlalpan, Ciudad de México, México</p>
+	                <p>Email: jbarajas.fig@gmail.com</p>
+	            </div>
+	            <div class="col-md-6">
+	                <h3>Enlaces Útiles</h3>
+	                <ul class="list-unstyled">
+	                    <li><a href="#">Inicio</a></li>
+	                    <li><a href="#">Acerca de Nosotros</a></li>
+	                    <li><a href="#">Servicios</a></li>
+	                    <li><a href="#">Contacto</a></li>
+	                </ul>
+	            </div>
+	        </div>
+	        <hr>
+	        <p class="text-center">&copy; 2023 UCamp, Proyecto 2 CRUD .</p>
+	    </div>
+	</footer>
+
+   <!--Sección de dependencias JS-->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <!--<script src="script.js"></script>-->
+</body>
+</html>

@@ -6,7 +6,7 @@ const apiRoutes = require('./routes/apiRoutes');
 app.use(express.json());
 
 // Configura las rutas para la API
-app.use('/api', apiRoutes);
+app.use('/', apiRoutes);
 //app.use('/datos', apiRoutes);
 
 

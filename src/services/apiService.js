@@ -1,9 +1,9 @@
 // Ejemplo de un servicio para la API
 const axios = require('axios');
 
-exports.obtenerDatos = async () => {
+exports.obtenerPokemones = async () => {
   try {
-    const response = await axios.get('https://pokeapi.co/api/v2/pokemon/35');
+    const response = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=2000');
     return response.data;
   } catch (error) {
     throw error;
