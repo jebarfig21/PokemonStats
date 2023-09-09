@@ -1,0 +1,6 @@
+# Ignorar el directorio node_modules
+node_modules/
+package-lock.json
+
+# Ignorar archivos generados por el sistema operativo
+.DS_Store
