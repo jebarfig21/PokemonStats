@@ -16,6 +16,11 @@ $(document).ready(function() {
     const opcionSeleccionada = $(this).text();
     const botonDropdown = $(this).closest('.dropdown').find('.dropdown-toggle');
     botonDropdown.text(opcionSeleccionada);
+    // Realiza una solicitud GET al servidor después de seleccionar una opción
+    $.get('http://localhost:3000/onePokemon/'+opcionSeleccionada, function(data) {
+       // Tu código para manejar la respuesta del servidor aquí
+       console.log(data);
+   }); 
   });
 
   function llenarDropdown(selector, opciones) {

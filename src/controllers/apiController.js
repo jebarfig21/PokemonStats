@@ -17,3 +17,26 @@ exports.getPokemones = async (req, res) => {
   }
 };
 
+/*
+* Funcion que manda a llamar a un Pokemon por medio de su api, se seleccionan los datos necesarios para presentar en nuestra vista
+*/
+exports.getPokemon = async (req, res) => {
+  const pokemonId = req.params.pokemonId;
+  const data = await apiService.obtenerPokemon(pokemonId);
+  var nombre =  data.name
+  var imagen = data.sprites.front_default
+  var movimientos = []
+  for(var i = 3; i>0; i--){
+    movimientos.push(data.moves[i].move.name)
+  }
+  var tipos = []
+  for(var i=0; i<data.types.length;i++){
+    tipos.push(data.types[i].type.name)
+  }
+  res.json({ 
+    nombre : nombre,
+    imagen : imagen,
+    movimientos : movimientos,
+    tipos : tipos
+  });
+};

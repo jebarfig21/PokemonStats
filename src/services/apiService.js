@@ -10,4 +10,13 @@ exports.obtenerPokemones = async () => {
   }
 };
 
-console.log("Por fuera de service")
+
+exports.obtenerPokemon = async (pokemonId) => {
+  try {
+
+    const response = await axios.get('https://pokeapi.co/api/v2/pokemon/'+pokemonId+'/');
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
