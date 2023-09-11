@@ -3,7 +3,6 @@ const apiService = require('../services/apiService');
 
 exports.getPokemones = async (req, res) => {
   try {
-    console.log("Llegamos a controller")
     const data = await apiService.obtenerPokemones(); // Llama a un servicio para obtener datos de la API externa. 
     namePokemon=[]
     for (elem  in data.results){

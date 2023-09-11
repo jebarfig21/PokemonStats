@@ -4,11 +4,9 @@ $(document).ready(function() {
     // Llena el primer dropdown
     console.log(data)
     llenarDropdown('#dropdownMenuButton1', data);
-    console.log("Dimos clic al dropdwon 1")
     // Llena el segundo dropdown
     llenarDropdown('#dropdownMenuButton2', data);
 
-    console.log("Dimos clic al dropdwon 2")
   });
 
   // Agrega un controlador de eventos para las opciones del dropdown
@@ -20,9 +18,30 @@ $(document).ready(function() {
     $.get('http://localhost:3000/onePokemon/'+opcionSeleccionada, function(data) {
        // Tu código para manejar la respuesta del servidor aquí
        console.log(data);
+       var idActual = botonDropdown[0].id
+       idActual=idActual[idActual.length - 1];
+       console.log($('#fotoPokemon'+idActual)[0].src=data.imagen)
+       //data.nombre
+       
+       //data.movimientos
+       console.log(data.movimientos)
+       // Agrega el nuevo elemento a la lista <ul> con id "miLista"
+       $("#mov1Pokemon"+idActual).text("Movimiento : "+data.movimientos[0]);
+       $("#mov2Pokemon"+idActual).text("Movimiento : "+data.movimientos[1]);
+       $("#mov3Pokemon"+idActual).text("Movimiento : "+data.movimientos[2]);
+       $("#tipoPokemon"+idActual).text("Tipo : "+data.tipos[0]);
+       
+       //data.tipos
+
    }); 
+    
+    
+
   });
 
+/*
+ * Funciones auxiliares
+ * */
   function llenarDropdown(selector, opciones) {
   const dropdown = $(selector).next('.dropdown-menu');
 
@@ -30,4 +49,5 @@ $(document).ready(function() {
     dropdown.append(`<li><a class="dropdown-item" href="#">${opcion}</a></li>`);
   });
 }
+
 });

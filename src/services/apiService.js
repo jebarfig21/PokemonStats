@@ -3,7 +3,7 @@ const axios = require('axios');
 
 exports.obtenerPokemones = async () => {
   try {
-    const response = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=2000');
+    const response = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=500');
     return response.data;
   } catch (error) {
     throw error;
