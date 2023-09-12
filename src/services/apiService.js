@@ -20,3 +20,12 @@ exports.obtenerPokemon = async (pokemonId) => {
     throw error;
   }
 };
+
+exports.obtenerMove = async (movimientoId) => {
+  try {
+    const response = await axios.get('https://pokeapi.co/api/v2/move/'+movimientoId);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};

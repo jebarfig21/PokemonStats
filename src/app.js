@@ -18,7 +18,6 @@ app.use(cors(corsOptions));
 
 // Configura las rutas para la API
 app.use('/', apiRoutes);
-//app.use('/datos', apiRoutes);
 
 
 // Inicia el servidor

@@ -39,3 +39,16 @@ exports.getPokemon = async (req, res) => {
     tipos : tipos
   });
 };
+
+exports.getMove = async(req, res) => {
+  const movimientoId = req.params.moveId;
+  const data = await apiService.obtenerMove(movimientoId);
+ 
+  res.json({
+    accuracy : data.accuracy,
+    power : data.power,
+    pp : data.pp,
+    priority : data.priority,
+    effect_chance : data.effect_chance
+  })
+}
