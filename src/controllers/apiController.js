@@ -40,6 +40,10 @@ exports.getPokemon = async (req, res) => {
   });
 };
 
+/*
+* Funcion que obtiene movimiento de la api pokemon, y regresa las estadisticas de un movimiento solicitado, las cuales
+* ya son filtradas en este método
+*/
 exports.getMove = async(req, res) => {
   const movimientoId = req.params.moveId;
   const data = await apiService.obtenerMove(movimientoId);

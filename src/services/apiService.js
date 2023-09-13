@@ -1,4 +1,7 @@
-// Ejemplo de un servicio para la API
+/** 
+* En este script obtenemos la data en crudo de las peticiones a la api, las cuales posteriormente
+* Se envian al controlador para ser manipuladas
+*/
 const axios = require('axios');
 
 exports.obtenerPokemones = async () => {

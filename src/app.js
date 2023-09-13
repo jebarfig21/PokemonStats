@@ -5,7 +5,8 @@ const cors = require('cors');
 
 // Middleware para procesar JSON
 app.use(express.json());
-// Configura las políticas de CORS
+
+// Configura las políticas de CORS para correr en localhost
 
 const corsOptions = {
   origin: 'null', // Reemplaza con el dominio de tu sitio web

@@ -1,13 +1,18 @@
-var canvas={} ;
+var canvas={} ; //Variable global para guardar los canvas, con el fin de poderlos destruir, no se me ocurrio otra manera de resolverlo ..
+
 $(document).ready(function() {
-  // Realiza una solicitud GET para obtener las opciones del dropdown
+  /*
+  * Realiza una solicitud GET para obtener las opciones del dropdown (Lista pokemons)
+  */
   $.get('http://localhost:3000/allPokemon', function(data) {
     llenarDropdown($('#dropdownSelect1'), data);
     llenarDropdown($('#dropdownSelect2'), data);
    
   });
 
-  // Agrega un controlador de eventos para las opciones del dropdown
+  /*
+  * Una vez que cambia la selección del menu desplegable muestra la infromación y el  gráfico del pokemon seleccionado
+  */
   $(".dpSelect").on("change", async function() {
     const opcionSeleccionada = $(this).val();
     var idActual = $(this).attr("id");
@@ -23,32 +28,22 @@ $(document).ready(function() {
        $("#tipoPokemon"+idActual).text("Tipo : "+data.tipos[0]);
        $("#namePokemon"+idActual).text(data.nombre);
        dataPokemon = data
-       var statsArr=[]
        let diccionario = {};
 
+      //Obtiene estadisticas de cada movimiento del pokemon
       for (let i = 0; i < dataPokemon.movimientos.length; i++) {
         let mov_aux = dataPokemon.movimientos[i];
         let datosMovimiento = await obtenerDatosMovimiento(mov_aux);
         diccionario[mov_aux] = datosMovimiento;
-      
       }
 
-        // Acceder a los elementos del diccionario
-        
-        //if(canvas[]={})
-     console.log(canvas["chartPokemon"+idActual])
+      //Se deslpiega gráfica de radar
       var canva
-
       if (canvas["chartPokemon"+idActual] !== undefined) {
         canvas["chartPokemon"+idActual].destroy()
-        console.log(canvas["chartPokemon"+idActual])
-        console.log("Se detruyo")
       }
       canva = createChart(dataPokemon.movimientos,diccionario,"chartPokemon"+idActual)
       canvas["chartPokemon"+idActual]=canva
-      
-      console.log(canvas["chartPokemon"+idActual])
-       console.log(canvas)
     });
   });
 
@@ -59,7 +54,12 @@ $(document).ready(function() {
     });
   });
 
-}
+}//Fin de despliegue de datos de pokemon 
+
+/*
+* Pone a luchar a los pokemons y decide un ganador, esto por ahora se simula y deja a la suerte, 
+* pero puede programarse una batalla mas compleja
+*/
   $("#botonLucha").click(function () {
     var namePokemon2 = $("#namePokemon2").text()
     var namePokemon1 = $("#namePokemon1").text()
@@ -75,7 +75,9 @@ $(document).ready(function() {
     }
     });
 
-  // Ahora puedes aplicar una función o realizar operaciones en todos los elementos seleccionados
+/*
+* Funcionalidad de los select para poder buscar por nombre el pokemon en la barra de filter
+*/
   $(".dpSelect").each(function() {
       $(this).prepend('<option></option>').select2({
             maximumSelectionLength: 2,
@@ -93,6 +95,10 @@ $(document).ready(function() {
 /*
  * Funciones auxiliares
  * */
+
+  /*
+  * Funcion para llenar la lista de pokemon en los dropdwons
+  */
   function llenarDropdown(selector, opciones) {
     opciones.forEach(function(opcion) {
     var newOption = $("<option>");
@@ -104,6 +110,9 @@ $(document).ready(function() {
   });
 }
 
+/*
+*Define configuación de la gráfica
+*/
 function createChart(movimientos,stats,idChart){
   
      var data1 = {
@@ -152,4 +161,4 @@ function createChart(movimientos,stats,idChart){
   });
 }
 
-});
+});//Fin de function ready
