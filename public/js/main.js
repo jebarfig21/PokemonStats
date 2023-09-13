@@ -1,10 +1,12 @@
 var canvas={} ; //Variable global para guardar los canvas, con el fin de poderlos destruir, no se me ocurrio otra manera de resolverlo ..
+var host = "https://pokemonbattleucamp.onrender.com"
+//var host = "'http://localhost:3000"
 
 $(document).ready(function() {
   /*
   * Realiza una solicitud GET para obtener las opciones del dropdown (Lista pokemons)
   */
-  $.get('http://localhost:3000/allPokemon', function(data) {
+  $.get(host+'/allPokemon', function(data) {
     llenarDropdown($('#dropdownSelect1'), data);
     llenarDropdown($('#dropdownSelect2'), data);
    
@@ -13,13 +15,14 @@ $(document).ready(function() {
   /*
   * Una vez que cambia la selección del menu desplegable muestra la infromación y el  gráfico del pokemon seleccionado
   */
+
   $(".dpSelect").on("change", async function() {
     const opcionSeleccionada = $(this).val();
     var idActual = $(this).attr("id");
     var idActual=idActual[idActual.length - 1];
     var dataPokemon = []   
     // Realiza una solicitud GET al servidor después de seleccionar una opción
-    $.get('http://localhost:3000/onePokemon/'+opcionSeleccionada,async function(data) {
+    $.get(host+'/onePokemon/'+opcionSeleccionada,async function(data) {
        // Tu código para manejar la respuesta del servidor aquí
        $('#fotoPokemon'+idActual)[0].src=data.imagen
        $("#mov1Pokemon"+idActual).text("Movimiento : "+data.movimientos[0]);
@@ -49,7 +52,7 @@ $(document).ready(function() {
 
   function obtenerDatosMovimiento(movimiento) {
     return new Promise((resolve, reject) => {
-      $.get('http://localhost:3000/move/' + movimiento, function(data) {
+      $.get(host+'/move/' + movimiento, function(data) {
         resolve([data.accuracy, data.power, data.pp, data.priority, data.effect_chance]);
     });
   });
