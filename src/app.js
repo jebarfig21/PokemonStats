@@ -9,10 +9,10 @@ app.use(express.json());
 // Configura las políticas de CORS para correr en localhost
 
 const corsOptions = {
-  origin: 'null', // Reemplaza con el dominio de tu sitio web
+  origin: ['null', 'https://jebarfig21.github.io'], // Agrega los dominios permitidos en un array
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true, // Permite incluir cookies en las solicitudes (si es necesario)
-  optionsSuccessStatus: 204, // Establece el código de estado para respuestas pre-vuelo OPTIONS
+  credentials: true,
+  optionsSuccessStatus: 204,
 };
 
 app.use(cors(corsOptions));
